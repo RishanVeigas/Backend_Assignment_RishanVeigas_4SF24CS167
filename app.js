@@ -16,7 +16,7 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/prescriptions", prescriptionRoutes);
 
-const schemaPath = path.join(__dirname, "./database/hospital.sql");
+const schemaPath = path.join(__dirname, "./database/schema.sql");
 
 const schema = fs.readFileSync(schemaPath, "utf8");
 

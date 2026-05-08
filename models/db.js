@@ -1,8 +1,14 @@
 const sqlite3 = require("sqlite3").verbose();
-const db = new sqlite3.Database("../database/hospital.sql", (err) => {
+const path = require("path");
+
+const dbPath = path.join(__dirname, "../database/hospital.db");
+
+const db = new sqlite3.Database(dbPath, (err) => {
   if (err) {
-    console.log(err);
+    console.error("Database connection error:", err.message);
+  } else {
+    console.log("Connected to SQLite database");
   }
-  console.log("Connected to sqlite database");
 });
+
 module.exports = db;
